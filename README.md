@@ -24,7 +24,7 @@ menu[choice]["func"]()
 
 ```
 The answer was nested dictionaries! By creating a menu dictionary, with one nested dictionary per menu option, I could store:
-* The menu option index (as the name of the nested dictionary)
+* The menu option param (as the name of the nested dictionary)
 * The label (to be printed to the user with the other menu options)
 * The name of the function to be called (if the user chooses that menu option)
 
@@ -94,4 +94,22 @@ class App:
         }
 
         self.ui.choose_menu("MAIN MENU", MAIN_MENU)
+```
+
+## Going Forward
+Right now, the user input validator checks to see if the input exists in the range between 1 and the length of the dictionary (plus 1). However, what if I wanted the first menu options to look like the following?
+    1. Menu option 1
+    2. Menu option 2
+    3. Menu option 3
+    0. Quit
+
+A solution to that could be to remove the name of the nested dictionaries, and instead move the param and make it to a dict key. However, that would make the validator function more complex, as I would either have to loop through the param values each time the menu function is running or create an index of sorts.
+```python
+menu = {
+    {
+        "param": 1,
+        "label": "",
+        "func": FUNC
+    }
+}
 ```
