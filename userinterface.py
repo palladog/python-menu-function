@@ -64,7 +64,7 @@ class UserInterface:
 
         self.notify_user(heading)
 
-        # Prints menu by iterating through the dict/array
+        # Prints menu by iterating through the dict
         for i in menu:
             self.notify_user(f"{i}. {menu[i]['label']}")
         
